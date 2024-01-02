@@ -1,7 +1,11 @@
 // main.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter101/components/appbar.dart';
 import 'package:flutter101/components/navbottom.dart';
+import 'package:flutter101/pages/event.dart';
+import 'package:flutter101/pages/homepage.dart';
+import 'package:flutter101/pages/service.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,12 +26,28 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  String appBarTitle = "Ilkomerz"; // Judul default
+
   PageController _pageController = PageController();
   int currentIndexPage = 1;
 
-  void switchPage(int index){
+  void switchPage(int index) {
     setState(() {
-      currentIndexPage = index;      
+      currentIndexPage = index;
+      // Mengubah judul AppBar berdasarkan halaman yang aktif
+      if (index == 0) {
+        setAppBarTitle("Event");
+      } else if (index == 1) {
+        setAppBarTitle("Homepage");
+      } else if (index == 2) {
+        setAppBarTitle("Service");
+      }
+    });
+  }
+
+  void setAppBarTitle(String title) {
+    setState(() {
+      appBarTitle = title;
     });
   }
 
@@ -35,16 +55,20 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ilkomerz', style: TextStyle(color: Colors.black54, fontSize: 25, fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.white,
+        title: HeaderApp(
+          changedTittle: (title) {
+            setAppBarTitle(title);
+          },
+        ),
+        backgroundColor: Colors.blue[900],
       ),
       body: PageView(
         controller: _pageController,
         onPageChanged: switchPage,
         children: [
-          AboutPage(),
-          HomePage(),
-          TokoPage(),
+          Event(),
+          Homepage(),
+          Service(),
         ],
       ),
       bottomNavigationBar: NavBottom(

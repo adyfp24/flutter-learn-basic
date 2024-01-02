@@ -24,52 +24,25 @@ class _NavBottomState extends State<NavBottom> {
           curve: Curves.easeInOut,
         );
       },
+      backgroundColor: Colors.blue[900], // Ganti warna latar belakang
+      selectedItemColor: Colors.yellow, // Ganti warna label dan ikon aktif
+      unselectedItemColor: Colors.white, // Ganti warna label dan ikon tidak aktif
+      selectedFontSize: 14.0, // Ukuran font label aktif
+      unselectedFontSize: 12.0, // Ukuran font label tidak aktif
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.event),
+          icon: Icon(Icons.event, size: 24), // Ganti ukuran ikon
           label: 'Event',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: Icon(Icons.home, size: 24), // Ganti ukuran ikon
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.notifications_active),
-          label: 'Notifikasi',
+          icon: Icon(Icons.miscellaneous_services, size: 24), // Ganti ukuran ikon
+          label: 'Service',
         ),
       ],
     );
   }
 }
-
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
-      child: Center(child: Text('Home', style: TextStyle(fontSize: 25),)),
-    );
-  }
-}
-
-class AboutPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.green,
-      child: Center(child: Text('About')),
-    );
-  }
-}
-
-class TokoPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.orange,
-      child: Center(child: Text('Toko')),
-    );
-  }
-}
-
