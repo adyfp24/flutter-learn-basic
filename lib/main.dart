@@ -28,7 +28,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   String appBarTitle = "Ilkomerz"; // Judul default
 
-  PageController _pageController = PageController();
+  PageController _pageController = PageController( initialPage: 1);
   int currentIndexPage = 1;
 
   void switchPage(int index) {
@@ -54,6 +54,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: HeaderApp(
           changedTittle: (title) {
@@ -62,7 +63,8 @@ class _MainScreenState extends State<MainScreen> {
         ),
         backgroundColor: Colors.blue[900],
       ),
-      body: PageView(
+      body: 
+      PageView(
         controller: _pageController,
         onPageChanged: switchPage,
         children: [
