@@ -1,6 +1,7 @@
 // main.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter101/api/api.dart';
 import 'package:flutter101/components/appbar.dart';
 import 'package:flutter101/components/navbottom.dart';
 import 'package:flutter101/pages/event.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainScreen(),
+      home: TestApi(),
     );
   }
 }
@@ -28,7 +29,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   String appBarTitle = "Ilkomerz"; // Judul default
 
-  PageController _pageController = PageController( initialPage: 1);
+  PageController _pageController = PageController(initialPage: 1);
   int currentIndexPage = 1;
 
   void switchPage(int index) {
@@ -63,8 +64,7 @@ class _MainScreenState extends State<MainScreen> {
         ),
         backgroundColor: Colors.blue[900],
       ),
-      body: 
-      PageView(
+      body: PageView(
         controller: _pageController,
         onPageChanged: switchPage,
         children: [

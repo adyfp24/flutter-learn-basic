@@ -1,5 +1,3 @@
-// navbottom.dart
-
 import 'package:flutter/material.dart';
 
 class NavBottom extends StatefulWidget {
@@ -35,7 +33,20 @@ class _NavBottomState extends State<NavBottom> {
           label: 'Event',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.home, size: 24), // Ganti ukuran ikon
+          icon: Container(
+            decoration: BoxDecoration(
+              color: Colors.yellow, // Ganti warna latar belakang
+              shape: BoxShape.circle,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Icon(
+                Icons.home,
+                size: 24, // Ganti ukuran ikon
+                color: Colors.blue[900], // Ganti warna ikon
+              ),
+            ),
+          ),
           label: 'Home',
         ),
         BottomNavigationBarItem(
